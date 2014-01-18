@@ -1,0 +1,36 @@
+**SoftShoe RpgTile Engine By: Robert Shoemate**
+If your questions are not answered in this help file
+please feel free to email me at shoemate@flash.net
+
+
+1.0 -The Main Stuff-
+I know that this program is kind of lame in ways, but hey its one of 
+my older programs! Please send me any programs you make with it!
+shoemate@flash.net
+
+2.0 -Questions?-
+/1 The tiles load on the screen really slow? Why??
+    -This program is horribly written, it started out as
+      a test but I later decided to release it. Make sure 
+      that your computer is faster that a pentium 75, and 
+      this program should run well, but the screens will
+      still load up kind of slow.
+
+/2 I don't know how to make an animation, how do I do it?
+    -Figure it out for yourself, your a programmer aren't you?
+        
+/3 The tile editor sucks, can I make my own tile editor?
+    -Go ahead, its easy to do, all of the tiles exist in a matrix,
+      which should make it easy to do.
+
+/4 How many colours can I use?
+    -Up to 256 colors which are allowed by the default screen 13 
+     palette.
+
+/5 This help file is horribly written, and I need help with something
+   else.  
+    -Email me at shoemate@flash.net
+
+
+-------------------------------------------------------
+

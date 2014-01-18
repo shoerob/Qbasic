@@ -1,0 +1,6 @@
+Chips V0.1
+By:Robert Shoemate
+Made July 1st 1996
+------------------
+Made With Qbasic 4.5
+------------------

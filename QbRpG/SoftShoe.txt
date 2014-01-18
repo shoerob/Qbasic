@@ -1,0 +1,19 @@
+******* SoftShoe Qbasic Rpg Engine *******
+The SoftShoe RpgTile Engine is Copyright(C) 1996 Robert Shoemate
+Visit The SoftShoe Homepage at:
+Http://www.geocities.com/TimesSquare/Arcade/6361/
+******************************************
+All credit for this program goes to Robert Shoemate.
+This text file(SoftShoe.txt) must be included where ever this
+source code is released.
+------------------------------------------
+
+**Games That You Make With This Source**
+If you for any reason use any of the source code from the file(s)
+Engine3.bas, tilanim.bas, or Tilemake.bas. Please use my name in the 
+credits for the source that I have provided.
+**------------------------------------**
+
+
+
+

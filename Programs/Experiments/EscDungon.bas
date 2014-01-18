@@ -1,0 +1,55 @@
+x = 1
+y = 1
+x1 = 2
+y1 = 2
+SCREEN 12
+LOCATE 15, 28: PRINT "Escape From The Dungeon"
+SLEEP 1
+GOTO START:
+
+START:
+CLS
+DO
+delay = delay + 1
+IF delay = 100 THEN GOSUB ENEMY:
+a$ = INKEY$
+IF a$ = CHR$(0) + "M" THEN GOSUB RIGHT1:
+IF a$ = CHR$(0) + "K" THEN GOSUB LEFT1:
+IF a$ = CHR$(0) + "P" THEN GOSUB DOWN1:
+IF a$ = CHR$(0) + "H" THEN GOSUB UP1:
+LOCATE 26, 1: PRINT a$
+COLOR 12
+LOCATE x, y: PRINT CHR$(1)
+LOOP
+
+
+RIGHT1:
+IF y = 80 THEN RETURN
+COLOR 0
+LOCATE x, y: PRINT CHR$(1)
+y = y + 1
+RETURN
+LEFT1:
+IF y = 1 THEN RETURN
+COLOR 0
+LOCATE x, y: PRINT CHR$(1)
+y = y - 1
+RETURN
+DOWN1:
+IF x = 25 THEN RETURN
+COLOR 0
+LOCATE x, y: PRINT CHR$(1)
+x = x + 1
+RETURN
+UP1:
+IF x = 1 THEN RETURN
+COLOR 0
+LOCATE x, y: PRINT CHR$(1)
+x = x - 1
+RETURN
+
+ENEMY:
+delay = 0
+LOCATE 2, 2: PRINT ""
+RETURN
+
