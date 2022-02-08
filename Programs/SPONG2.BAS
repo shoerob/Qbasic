@@ -1,3 +1,100 @@
+MenuOptions = 0
+
+
+'====================INTRO====================
+intro:
+
+SCREEN 0
+CLS
+x = 0
+DO UNTIL x = 4000
+RANDOMIZE TIMER
+d1 = INT(RND * 75) + 1
+D2 = INT(RND * 23) + 1
+x = x + 1
+COLOR 9
+LOCATE D2, d1
+PRINT "°±²"
+LOCATE 10, 33
+COLOR 4, 7
+PRINT "SUPERPONG"
+LOCATE 11, 33
+PRINT "  V1.2   "
+LOOP
+
+x = 0
+DO UNTIL x = 4000
+RANDOMIZE TIMER
+d1 = INT(RND * 75) + 1
+D2 = INT(RND * 23) + 1
+x = x + 1
+COLOR 0
+LOCATE D2, d1
+PRINT "°±²"
+LOCATE 10, 33
+COLOR 7, 1
+PRINT " By: Robert Shoemate  "
+LOCATE 11, 33
+COLOR 2, 1
+
+PRINT "(c)SoftShoe 1997 - 2022"
+LOOP
+CLS
+
+
+
+'====================MAIN MENU====================
+mainmenu:
+
+SCREEN 0
+
+COLOR , 0
+CLS
+PRINT
+COLOR 4, 7
+LOCATE , 28
+PRINT "   Super Spong V1.1   "
+COLOR 7, 1
+LOCATE , 28
+PRINT "  (c)SoftShoe 1997    "
+COLOR 2, 1
+LOCATE , 28
+PRINT " By: Robert Shoemate  "
+PRINT
+COLOR 7
+LOCATE , 28
+PRINT "   1) Play Game       "
+LOCATE , 28
+'PRINT "   2) Options         "
+LOCATE , 28
+PRINT "   3) Exit            "
+PRINT ""
+PRINT
+COLOR 7, 0
+LOCATE , 28
+INPUT " Option: ", MenuOptions
+
+IF MenuOptions = 1 THEN
+GOTO game
+END IF
+
+IF MenuOptions = 3 THEN
+CLS
+COLOR 7, 4
+PRINT "Thankyou for playing Super Spong!"
+COLOR 4, 7
+PRINT "Super Spong V1.1"
+COLOR 7, 1
+PRINT "(c)SoftShoe 1997"
+COLOR 2, 1
+PRINT "By: Robert Shoemate"
+SLEEP 3
+END
+END IF
+
+'====================GAME====================
+game:
+
 SCREEN 12
 RANDOMIZE TIMER
 pY = 450
@@ -10,8 +107,8 @@ directy = INT(RND * 1) + 1
 PSET (1, 1), 12: DRAW "D450R600u450l600"
 PSET (px, pY), 14
 DRAW paddle$
-spd = .5
-pspd = 7
+spd = 1
+pspd = 20
 life = 10
 DO
 
@@ -28,8 +125,11 @@ IF directy = 0 THEN Y = Y + spd: IF Y > 434 AND x < px + 35 AND x > px THEN dire
 IF directy = 1 THEN Y = Y - spd: IF Y < 8 THEN directy = 0
 
 ' +++PADEL SENSER
-IF Y > 434 AND x < px + 35 AND x > px THEN directx = 1
-' +++PADEL SENSER
+IF Y > 434 AND x < px + 35 AND x > px THEN
+directx = 1
+spd = spd + .1
+END IF
+' +++PADEL SENSER & SPEED VARIABLE INCREASE
 
 IF Y > 445 THEN GOSUB loser: directy = 1
 CIRCLE (x, Y), 5, 10
@@ -37,7 +137,7 @@ CIRCLE (x, Y), 5, 10
 a$ = INKEY$
 IF a$ = CHR$(0) + "K" THEN GOSUB left
 IF a$ = CHR$(0) + "M" THEN GOSUB right
-IF a$ = CHR$(27) THEN GOTO done
+IF a$ = CHR$(27) THEN GOTO mainmenu
 LOCATE 1, 1: PRINT "Super Spong -Lifes:"; life
 LOOP
 left:
@@ -56,19 +156,49 @@ px = px + pspd
 PSET (px, pY), 14
 DRAW paddle$
 RETURN
+
 loser:
 life = life - 1
 IF life = 0 THEN GOTO done
 RETURN
-done:
-SCREEN 0
-COLOR 7, 4
-PRINT "Thankyou for playing Super Spong!"
-COLOR 4, 7
-PRINT "Super Spong V1.1"
-COLOR 7, 1
-PRINT "(c)SoftShoe 1997"
-COLOR 2, 1
-PRINT "By: Robert Shoemate"
-END
 
+
+'====================GAME OVER====================
+done:
+
+SCREEN 0
+CLS
+x = 0
+DO UNTIL x = 4000
+RANDOMIZE TIMER
+d1 = INT(RND * 75) + 1
+D2 = INT(RND * 23) + 1
+x = x + 1
+COLOR 4
+LOCATE D2, d1
+PRINT "°±²"
+LOCATE 10, 33
+COLOR 15
+PRINT "YOU HAVE DIED"
+LOCATE 11, 34
+PRINT "-GAME OVER-"
+LOOP
+
+x = 0
+DO UNTIL x = 4000
+RANDOMIZE TIMER
+d1 = INT(RND * 75) + 1
+D2 = INT(RND * 23) + 1
+x = x + 1
+COLOR 0
+LOCATE D2, d1
+PRINT "°±²"
+LOCATE 10, 33
+COLOR 15
+PRINT "YOU HAVE LOST"
+LOCATE 11, 34
+PRINT "-GAME OVER-"
+LOOP
+CLS
+
+GOTO mainmenu
